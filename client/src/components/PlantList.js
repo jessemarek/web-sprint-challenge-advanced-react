@@ -26,7 +26,7 @@ export default class PlantList extends Component {
   render() {
     return (
       <main className="plant-list">
-        {this.state?.plants?.map((plant) => (
+        {this.state?.plants?.filter(plant => this.props.searchField === "" ? plant : plant.name.toLowerCase().includes(this.props.searchField.toLowerCase())).map((plant) => (
           <div className="plant-card" key={plant.id}>
             <img className="plant-image" src={plant.img} alt={plant.name} />
             <div className="plant-details">
