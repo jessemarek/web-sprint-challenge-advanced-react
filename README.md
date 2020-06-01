@@ -30,13 +30,23 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+  *Stateful class components require the use of a `constructor()` function along with `super()` and a state object. Example: `this.state = { something: 'some value' }`*
+
 2. Describe the different phases of the component lifecycle.
+
+  *The component lifecycle consists of Mounting, Updating and Unmounting. These can be thought of as the birth, growth and death of a component. Mounting is when the component is first rendered. Updating is when a component is re-rendered after changes in state occur. Unmounting is when a component is removed or destroyed*
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+  *Some class component lifecycle methods include `componentDidMount()`, `componentDidUpdate()` and `componentWillUnmount()`. `cDM` will only be called once in the component's lifecycle and it occurs after the component first mounts. This can cause the component to be re-rendered if any changes to state are called inside of `cDM`. `cDU` will be called any time the component is updated which also causes it to be re-rendered. It is important to use conditional logic inside `cDU` otherwise there is a high chance and infinite loop will be created and cause the users machine to eventually crash. `cWU` is executed right before a component is destroyed. It is usually used to "clean up" timers or event listeners that aren't removed automatically. If they aren't cleaned up they could create memory leaks or other unintended reactions if the component was mounted again later in the App execution.*
+
 4. Define stateful logic.
 
+  *Stateful Logic is also know as Non-Visual Behavior. It is the code that defines the behavior of a component and while it may impact what the user sees in a component, the user does not see the stateful logic itself.*
+
 5. Describe how to test a React component with React Testing Library.
+
+  *A specific test files is created and test funcions are written that simulate user interaction with the App. The App runs in memory and the tests can be used to click buttons, type in inputs or do anything else a user might do with your App. They can be helpful in finding bugs in the code.*
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 

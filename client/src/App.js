@@ -11,6 +11,9 @@ function App() {
   // array of plants that have been added to the cart
   const [cart, setCart] = useState([]);
 
+  //Search input value
+  const [searchField, setSearchField] = useState('')
+
   // add a plant to the cart
   const addToCart = (plant) => {
     setCart([...cart, plant]);
@@ -21,6 +24,11 @@ function App() {
     setCart(cart.filter((p) => p.id !== plant.id));
   };
 
+  //Change handler for Search by Name input
+  const changeHandler = e => [
+    setSearchField(e.target.value)
+  ]
+
   return (
     <div>
       <Router>
@@ -28,6 +36,17 @@ function App() {
           <h1>
             React Plants <span role="img">🌿</span>
           </h1>
+
+          <form>
+            <label>Search by Name
+              <input 
+                type="text" 
+                onChange={changeHandler}
+                value={searchField}
+              />
+            </label>
+          </form>
+
           <ul className="steps">
             <li>
               <NavLink exact to="/">
@@ -47,7 +66,7 @@ function App() {
         <Route
           exact
           path="/"
-          render={() => <PlantList addToCart={addToCart} />}
+          render={() => <PlantList searchField={searchField} addToCart={addToCart} />}
         />
         <Route
           path="/cart"
